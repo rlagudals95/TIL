@@ -16,6 +16,7 @@
 forwardRef를 사용하면 자식 컴포넌트에서 ref를 직접 받을 수 있습니다.
 forwardRef를 사용하면 자식 컴포넌트의 render 함수가 호출되기 전에 ref 객체가 생성되고 연결됩니다. 따라서 ref.current는 렌더링이 완료되기 전에도 요소를 가리킬 수 있습니다.
 
+<br/>
 
 커스텀 ref props를 사용한 경우에는 렌더링이 완료된 후에 ref.current를 확인해야 하므로 초기에는 null일 수 있습니다. 
 forwardRef를 사용하는 경우에는 렌더링 이전에 ref.current를 확인할 수 있기 때문에 정상적으로 동작할 수 있습니다.
