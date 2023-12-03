@@ -103,5 +103,6 @@ export const DetailSection = memo(DetailSectionComponent);
 
 # Reference
 
-https://react.dev/learn/manipulating-the-dom-with-refs#accessing-another-components-dom-nodes
+* https://react.dev/learn/manipulating-the-dom-with-refs#accessing-another-components-dom-nodes  
+* https://velog.io/@shyuuuuni/React-useRef-forwardRef-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0
 
