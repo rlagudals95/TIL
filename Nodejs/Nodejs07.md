@@ -155,9 +155,5 @@ else if(pathname === '/delete_process'){
 
 
 
-# Reference
-
-https://greedysiru.tistory.com/49?category=862259
-
 
 
