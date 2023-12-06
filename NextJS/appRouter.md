@@ -3,7 +3,7 @@
 
 ## 2. App Router Vs. Page Router
 
-* App Router 서버 중심의 라우팅
+* App Router 서버 중심의 라우팅
   * app 디렉토리를 사용
   * **기본적으로 react server components를 기반으로 구성됨**
   * 서버에서 데이터 가져오기에 맞춰져 있음
