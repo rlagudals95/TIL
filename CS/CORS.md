@@ -40,7 +40,7 @@ Web Workers는 메인 스레드와 별도로 동작하며, 그들이 실행되�
 그러나 Web Worker 내부에서 XMLHttpRequest나 Fetch API를 사용하여 다른 출처의 자원을 요청하는 경우, 해당 요청은 CORS를 따르게 됩니다.
 
 Web Workers는 주로 병렬 처리와 작업 분리를 통해 웹 애플리케이션의 성능을 향상시키는 데 사용되며, 
-이러한 특성은 CORS 정책의 영향을 받지 않는 장점을 제공합니다.
+이러한 특성은 CORS 정책의 영향을 받지 않는 장점을 제공합니다.</S>
 
 
 ## chrome extension의 background는 cors 정책을 적용받지 않는다?
