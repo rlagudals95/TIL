@@ -25,6 +25,31 @@
 * 함수형은 변수 할당에 부과되는 규율
 
 
+**함수형 코드예시**
+
+1. 고차 함수 (Higher-Order Function):
+함수를 매개변수로 받거나 함수를 반환하는 함수를 사용하여 추상화 수준을 높이는 방법입니다.
+
+
+```javascript
+ // 고차 함수 예시: map
+ const numbers = [1, 2, 3, 4, 5];
+ const doubled = numbers.map(x => x * 2);
+ console.log(doubled); // [2, 4, 6, 8, 10]
+```
+
+2. 순수 함수 (Pure Function):
+부작용이 없는 함수로, 같은 입력에 대해서 항상 같은 출력을 반환합니다.
+
+```javascript
+ // 순수 함수 예시
+ function add(a, b) {
+   return a + b;
+ }
+ 
+ const result = add(3, 4);
+ console.log(result); // 7
+```
 
 ### 장점
 
@@ -47,6 +72,30 @@
 * 기존 명령형 프로그래밍은 문제를 어떻게 해결해야 하는지 컴퓨터에게 명령을 내리는 방법
 * 선언형 프로그래밍은 무엇을 해결해야할 지에 집중하고 해결 방법은 컴퓨터에게 위임
 * Data Flow
+
+**선언형 코드예시**
+
+1. 선언형 배열 조작 (Declarative Array Manipulation):
+어떤 동작을 수행하는 대신 어떤 결과를 얻을지 선언합니다.
+
+```javscript
+ // 선언형 배열 조작 예시: filter와 reduce를 사용하여 합 구하기
+ const numbers = [1, 2, 3, 4, 5];
+ const sum = numbers.filter(x => x % 2 === 0).reduce((acc, val) => acc + val, 0);
+ console.log(sum); // 6
+```
+
+2. 선언형 객체 조작 (Declarative Object Manipulation):
+객체 조작에서 명령형 프로그래밍보다 더 간결하고 읽기 쉽게 표현할 수 있습니다.
+
+```
+ // 선언형 객체 조작 예시: Object.assign을 사용하여 객체 합치기
+ const person = { name: 'John', age: 30 };
+ const additionalInfo = { job: 'Developer' };
+ 
+ const updatedPerson = Object.assign({}, person, additionalInfo);
+ console.log(updatedPerson); // { name: 'John', age: 30, job: 'Developer' }
+```
 
 
 
