@@ -69,5 +69,7 @@ webworker가 아닌 chrome의 background에서 cors 정책이 우회가 가능�
 적절한 보안 조치를 취하지 않으면 사용자의 개인 정보 등이 유출될 수 있는 위험이 있습니다.
 
 
+**단, host_permission에 fetch 요청을 할 도메인을 명시해주어야 합니다.**
+
 
 
