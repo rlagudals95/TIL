@@ -43,6 +43,14 @@ Web Workers는 주로 병렬 처리와 작업 분리를 통해 웹 애플리케�
 이러한 특성은 CORS 정책의 영향을 받지 않는 장점을 제공합니다.</S>
 
 
+webworker가 아닌 chrome의 background에서 cors 정책이 우회가 가능합니다.
+
+```  
+  웹 워커에서 Fetch API를 사용하여 다른 도메인으로 요청을 보내면, 해당 요청의 Origin 헤더는 웹 페이지의 출처(origin)가 아닌 null로 설정됩니다. 
+  이는 웹 워커가 별도의 스레드에서 동작하며, 메인 스레드의 출처와는 독립적으로 실행되기 때문입니다.
+```
+
+
 ## chrome extension의 background는 cors 정책을 적용받지 않는다?
 
 크롬 확장 프로그램에서 CORS 정책을 우회할 수 있는 이유는 
