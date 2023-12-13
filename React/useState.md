@@ -29,3 +29,34 @@ setState는 App함수에 선언된 state가 아니라, 자신이 선언된 위�
 
 요점은 setState가 state를 변경시키는게 아니기 때문에, setState 호출 이후 로직에서도 state의 값은 이전과 동일하다는 점입니다. 
 변경된 값은 다음 컴포넌트 함수가 실행될 때 useState가 가져옵니다!
+
+
+const로 선언된 state 값이 왜 변해?
+setState는 state를 변환하는게 아니라,
+useState함수 안에서 접근할 수 있는 변수의 값을 변경한다.
+
+함수형 컴포넌트가 실행될때 useState의 state는 계속 할당이 되는 것이다~!
+
+
+```javascript
+import React, { useState } from 'react';
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  const handleIncrement = () => {
+    // setCount 함수를 사용하여 count 상태를 변경
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={handleIncrement}>Increment</button>
+    </div>
+  );
+}
+
+```
+
+const로 선언된 변수는 재할당이 불가능하지만, useState에서 반환된 상태 업데이트 함수를 통해 상태를 변경하는 것은 가능하며, 이 과정에서 React는 상태의 불변성을 유지하면서 업데이트를 수행합니다.
