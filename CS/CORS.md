@@ -12,6 +12,12 @@ CORS는 Cross-Origin Resource Sharing의 약자로,
 사전 요청은 실제 요청 전에 OPTIONS 메서드를 사용하여 브라우저와 서버 간에 헤더 정보 등을 교환하여 권한을 확인하는 과정을 포함합니다.
 
 
+## Same-Origin Policy (SOP):
+브라우저는 일반적으로 같은 출처에서 로드된 문서에 대한 요청만을 허용합니다. 
+출처란 프로토콜 (http, https), 호스트 (도메인), 포트 번호로 구성된 URL의 일부를 나타냅니다.
+이는 보안을 강화하기 위한 정책으로, 브라우저에서 실행되는 스크립트로 인해 다른 출처의 리소스에 접근하는 것을 방지합니다.
+
+
 
 ## CORS는 다음과 같은 헤더를 사용하여 제어됩니다:
 
@@ -27,28 +33,42 @@ CORS는 주로 웹 애플리케이션에서 외부 API와 통신하거나, 폰�
 서버 측에서 CORS 설정을 올바르게 구성하면 브라우저에서 자원에 안전하게 접근할 수 있습니다.
 
 
+## CORS 동작 단계
 
-## webworker와 CORS
+ * Preflight Request (사전 요청):
 
-<S>Web Workers는 CORS 정책을 적용받지 않습니다. **CORS 정책은 주로 브라우저 환경에서만 적용되는 것이며,** 
-**Web Workers는 브라우저와 별도로 실행되는 백그라운드 스레드로, 동일 출처 정책과 CORS와는 별개로 동작합니다.**
-
-Web Workers는 메인 스레드와 별도로 동작하며, 그들이 실행되는 스크립트 파일의 출처와 상관없이 통신할 수 있습니다. 
-이는 Web Workers를 사용하여 병렬로 작업을 수행하거나 긴 작업을 메인 스레드와 분리하여 실행할 때 유용합니다.
-
-다른 출처의 스크립트를 Web Worker로 로드하거나, Web Worker 내부에서 다른 출처의 자원에 접근하는 것은 CORS에 영향을 받지 않습니다. 
-그러나 Web Worker 내부에서 XMLHttpRequest나 Fetch API를 사용하여 다른 출처의 자원을 요청하는 경우, 해당 요청은 CORS를 따르게 됩니다.
-
-Web Workers는 주로 병렬 처리와 작업 분리를 통해 웹 애플리케이션의 성능을 향상시키는 데 사용되며, 
-이러한 특성은 CORS 정책의 영향을 받지 않는 장점을 제공합니다.</S>
+특정 조건에 해당하는 경우, 브라우저는 사전 요청을 보냅니다.
+사전 요청은 실제 요청 이전에 서버에게 허용 여부를 확인하는 역할을 합니다.
+OPTIONS 메서드를 사용하며, Access-Control-Request-* 헤더를 통해 실제 요청에서 사용될 헤더나 메서드 등을 미리 확인합니다.
 
 
-webworker가 아닌 chrome의 background에서 cors 정책이 우회가 가능합니다.
+ * 서버의 응답:
 
-```  
-  웹 워커에서 Fetch API를 사용하여 다른 도메인으로 요청을 보내면, 해당 요청의 Origin 헤더는 웹 페이지의 출처(origin)가 아닌 null로 설정됩니다. 
-  이는 웹 워커가 별도의 스레드에서 동작하며, 메인 스레드의 출처와는 독립적으로 실행되기 때문입니다.
+서버는 요청에 대한 응답으로 Access-Control-Allow-Origin 헤더를 반환하여 요청을 허용하는 출처를 명시합니다.
+다양한 설정을 위해 Access-Control-Allow-Methods, Access-Control-Allow-Headers, Access-Control-Allow-Credentials 등의 헤더도 사용될 수 있습니다.
+
+
+ * 실제 요청:
+
+사전 요청이 성공적으로 완료되면, 브라우저는 실제 요청을 보냅니다.
+서버는 요청을 받고, Access-Control-Allow-Origin 헤더를 통해 출처를 확인하고 응답합니다.
+
+브라우저의 OPTIONS 요청(pre-flight request) 예시
+
 ```
+OPTIONS /api/data HTTP/1.1
+Host: example.com
+Origin: https://example-origin.com
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: Content-Type
+
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: https://example-origin.com
+Access-Control-Allow-Methods: POST
+Access-Control-Allow-Headers: Content-Type
+```
+
+
 
 
 ## chrome extension의 background는 cors 정책을 적용받지 않는다?
