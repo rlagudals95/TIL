@@ -1,4 +1,4 @@
-## Promise_Generator
+## Promise & Generator
 
 Promise와 Generator는 JavaScript에서 비동기 프로그래밍 및 제어 흐름 관리에 사용되는 두 가지 주요 개념입니다.
 
@@ -10,6 +10,7 @@ Promise는 비동기 작업의 완료 또는 실패와 같은 비동기 작업�
  * Fulfilled(이행): 비동기 작업이 성공적으로 완료된 상태.
  * Rejected(거부): 비동기 작업이 실패한 상태.
  * Promise의 주요 메서드는 then(), catch(), finally() 입니다.
+
 
 
 **Promise then 구조**
