@@ -80,6 +80,12 @@ console.log(generator.next()); // { value: undefined, done: true }
 Generator는 비동기 코드의 순서를 쉽게 관리하고 복잡한 비동기 로직을 간단하게 만드는 데 사용될 수 있습니다. 
 Generator를 활용하면 비동기 코드의 가독성을 향상시킬 수 있습니다.
 
+비동기 처리 방식 자체의 문제점, 
+**인간에게 친숙한 사고방식인 순차적/동기적으로 표현할 수 없다는 문제가 해결되었습니다.** 
+이는 개발자의 입장에서 코드의 가독성을 높여주고 코드 실행 과정을 추론하는 시간을 줄이게 됩니다.
+
+
+
 ```javascript
 function* asyncGenerator() {
   try {
