@@ -8,9 +8,26 @@
 추상 클래스는 자신의 속성이나 메서드 앞에 abstract를 붙여 나를 상속하는 다른 클래스에서 이 속성이나 메서드를 구현하게 합니다. 
 **또한 추상 클래스로는 객체 인스턴스를 생성할 수 없고 상속용으로만 가능합니다.**
   
-https://images.velog.io/images/duplicareus/post/49662728-67fc-4ea0-ae81-7fb44acde807/image.png  
-
-https://images.velog.io/images/duplicareus/post/300c59bf-7fc9-4bbb-8922-b43d3dc1cd7a/image.png
+```
+abstract class Animal {
+  private _age: number;
+  
+  constructor (theAge: number) {
+    this._age = theAge;
+  }
+  
+  get age() {
+    return this._age;
+  }
+  
+  set age(theAge: number) {
+    this._age = theAge;
+  }
+  
+  // 추상 함수
+  public abstract makeSound(): void;
+}
+```
 
 
 
