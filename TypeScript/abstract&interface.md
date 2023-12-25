@@ -8,7 +8,7 @@
 추상 클래스는 자신의 속성이나 메서드 앞에 abstract를 붙여 나를 상속하는 다른 클래스에서 이 속성이나 메서드를 구현하게 합니다. 
 **또한 추상 클래스로는 객체 인스턴스를 생성할 수 없고 상속용으로만 가능합니다.**
   
-```
+```typescript
 abstract class Animal {
   private _age: number;
   
